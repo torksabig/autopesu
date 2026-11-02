@@ -54,9 +54,12 @@ export default function OfferPopup() {
           <img
             src="/images/avajaistarjous.webp"
             alt="H-Timantti avajaistarjous Turvesuonkatu 16, Tampere: renkaiden vaihto 15 €, käsinpesu 10 €. Avoinna ma–pe 8–18, la 10–18. Puh. 045 146 6505."
-            width="900"
-            height="1274"
-            className="block max-h-[88svh] w-auto max-w-[92vw] rounded-2xl shadow-2xl"
+            width="720"
+            height="1019"
+            fetchpriority="high"
+            decoding="async"
+            style={{ height: "min(88svh, calc(92vw * 1019 / 720))", aspectRatio: "720 / 1019", width: "auto" }}
+            className="block rounded-2xl bg-neutral-900 shadow-2xl"
           />
         </a>
       </div>

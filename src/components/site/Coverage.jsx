@@ -15,7 +15,7 @@ export default function Coverage() {
             <Image
               src={images.trailers}
               alt="Sininen teollisuushalli ja asfaltoitu piha"
-              className="h-full w-full"
+              className="h-full w-full object-cover"
               fittingType="fill"
             />
           </div>
@@ -23,7 +23,7 @@ export default function Coverage() {
             <Image
               src={images.trucks}
               alt="Kuorma-autoja tiellä ilta-auringossa"
-              className="h-full w-full"
+              className="h-full w-full object-cover"
               fittingType="fill"
             />
           </div>

@@ -10,7 +10,7 @@ export default function HeroPanel({ image, imageAlt, eyebrow, title, copy, href,
       <Image
         src={image}
         alt={imageAlt || title}
-        className="absolute inset-0 h-full w-full transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
         fittingType="fill"
         quality={priority ? 88 : 80}
       />

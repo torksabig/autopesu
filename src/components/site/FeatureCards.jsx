@@ -35,7 +35,7 @@ export default function FeatureCards() {
                 <Image
                   src={card.image}
                   alt={card.imageAlt}
-                  className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   fittingType="fill"
                 />
               </div>
