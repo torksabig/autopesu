@@ -163,6 +163,6 @@ export const faqs = [
   },
   {
     q: "Missä pesula sijaitsee?",
-    a: "Hepolamminkatu 24, Tampere. Tarkemmat ajo-ohjeet saat soittamalla, jos perille löytäminen mietityttää.",
+    a: "Meillä on kaksi pesulaa Tampereella: Hepolamminkatu 24 Hervannassa ja Turvesuonkatu 16 Lielahdessa, Prisman vieressä.",
   },
 ];
