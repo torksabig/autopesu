@@ -1,0 +1,57 @@
+{
+  "name": "WashEnquiry",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Contact person name"
+    },
+    "company": {
+      "type": "string",
+      "description": "Company or fleet name"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "vehicle_type": {
+      "type": "string",
+      "enum": [
+        "car",
+        "van",
+        "truck",
+        "trailer",
+        "bus",
+        "mixed_fleet"
+      ],
+      "default": "truck"
+    },
+    "fleet_size": {
+      "type": "number"
+    },
+    "service": {
+      "type": "string",
+      "description": "Requested service or package"
+    },
+    "message": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "contacted",
+        "booked",
+        "closed"
+      ],
+      "default": "new"
+    }
+  },
+  "required": [
+    "name",
+    "email"
+  ]
+}
