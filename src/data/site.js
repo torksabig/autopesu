@@ -14,6 +14,8 @@ export const business = {
     // { name: "Instagram", url: "https://www.instagram.com/KAYTTAJANIMI/" },
     // { name: "TikTok", url: "https://www.tiktok.com/@KAYTTAJANIMI" },
   ],
+  // Web3Forms access key (web3forms.com, free). Empty = form opens a prefilled SMS instead.
+  formEndpoint: "",
   legalName: "HMD Autokorjaamo",
   businessId: "3339714-7",
   hours: [

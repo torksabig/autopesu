@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { ArrowUpRight, Loader2, MapPin, Phone } from "lucide-react";
-import { base44 } from "@/api/base44Client";
 import Reveal from "@/components/site/Reveal";
 import SectionHeading from "@/components/site/SectionHeading";
 import { business, services } from "@/data/site";
@@ -42,13 +41,32 @@ export default function Enquiry() {
     event.preventDefault();
     setStatus("sending");
     setError("");
+    const text = [
+      `Tarjouspyyntö: ${form.name}`,
+      form.phone && `Puh: ${form.phone}`,
+      form.email && `Email: ${form.email}`,
+      form.vehicle_type && `Auto: ${form.vehicle_type}`,
+      form.service && `Palvelu: ${form.service}`,
+      form.message,
+    ].filter(Boolean).join("\n");
     try {
-      await base44.entities.WashEnquiry.create({ ...form, status: "new" });
+      if (business.formEndpoint) {
+        // Web3Forms (or similar) delivers the enquiry to the pesula's email.
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({ access_key: business.formEndpoint, subject: "Uusi tarjouspyyntö – H. Timantti", ...form }),
+        });
+        if (!res.ok) throw new Error("send failed");
+      } else {
+        // No email inbox configured yet: hand the enquiry to the visitor's SMS app.
+        window.location.href = `sms:+358452206422?body=${encodeURIComponent(text)}`;
+      }
       setStatus("done");
       setForm(emptyForm);
     } catch (err) {
       setStatus("error");
-      setError(err?.message || "Jokin meni pieleen. Soita meille sen sijaan.");
+      setError("Viestin lähetys epäonnistui. Soita meille tai varaa aika verkosta.");
     }
   };
 
@@ -104,11 +122,13 @@ export default function Enquiry() {
             <div className="rounded-2xl border border-border bg-background p-6 sm:p-9">
               {status === "done" ? (
                 <div className="flex min-h-[22rem] flex-col items-start justify-center">
-                  <span className="eyebrow">Viesti lähetetty</span>
+                  <span className="eyebrow">{business.formEndpoint ? "Viesti lähetetty" : "Viesti valmiina"}</span>
                   <h3 className="mt-3 text-3xl font-medium tracking-tight">Kiitos! Otamme yhteyttä.</h3>
                   <p className="mt-4 max-w-md text-[0.92rem] leading-relaxed text-muted-foreground">
-                    Viestisi on perillä. Jos asia on kiireinen, soita {business.phone} tai varaa aika suoraan
-                    verkosta.
+                    {business.formEndpoint
+                      ? "Viestisi on perillä."
+                      : "Viesti avautui tekstiviestisovellukseesi. Muista painaa lähetä."}{" "}
+                    Jos asia on kiireinen, soita {business.phone} tai varaa aika suoraan verkosta.
                   </p>
                   <div className="mt-7 flex flex-wrap gap-3">
                     <a
