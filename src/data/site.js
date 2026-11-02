@@ -168,3 +168,22 @@ export const faqs = [
     a: "Meillä on kaksi pesulaa Tampereella: Hepolamminkatu 24 Hervannassa ja Turvesuonkatu 16 Lielahdessa, Prisman vieressä.",
   },
 ];
+
+// Real 5-star Google reviews (Hepolamminkatu profile), quoted verbatim.
+// Names shortened to first name + initial for the reviewers' privacy.
+export const googleRating = {
+  rating: "4,2",
+  count: 248,
+  url: "https://www.google.com/maps/place/?q=place_id:ChIJsZc0H77fjkYRvF_w00KV7wA",
+};
+
+export const reviews = [
+  {
+    name: "Heikki N.",
+    text: "Äitienpäivälahjaksi hankittu fiksaus teetetty (ulko- ja sisäpesu myllytyksineen). Aivan huippu lopputulos ja äitimuori enemmän kuin tyytyväinen. Asioimme varmasti toistekkin. Lämmin kiitos henkilökunnalle ja aurinkoista kesää!",
+  },
+  {
+    name: "Mervi R.",
+    text: "Punainen vanha corollani oli todellakin haalistunut. Miehet tekivät uskomattoman työn. Nyt kiiltää ja kuin uusi.",
+  },
+];
