@@ -23,7 +23,6 @@ const columns = [
     links: [
       { label: "Varaa aika verkossa", href: business.bookingUrl, external: true },
       { label: "Lähetä viesti", href: "/#enquiry" },
-      { label: "Facebook", href: business.facebookUrl, external: true },
       { label: "Puhelin", href: business.phoneHref },
     ],
   },
@@ -39,6 +38,20 @@ export default function SiteFooter() {
             <p className="mt-1 text-[0.68rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
               {business.tagline} · {business.region}
             </p>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {business.socials.map((s) => (
+                <a
+                  key={s.name}
+                  href={s.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`H. Timantti ${s.name}`}
+                  className="rounded-full border border-border px-4 py-2 text-[0.78rem] font-medium transition-colors hover:border-foreground"
+                >
+                  {s.name}
+                </a>
+              ))}
+            </div>
             <p className="mt-6 max-w-xs text-[0.88rem] leading-relaxed text-muted-foreground">
               Autojen käsinpesu Tampereella. Käsinpesu, imurointi, sisäpuhdistus ja moottorin pesu
               Hepolamminkadulla.

@@ -8,6 +8,12 @@ export const business = {
   address: "Hepolamminkatu 24, Tampere",
   bookingUrl: "https://h-timantti.setmore.com/",
   facebookUrl: "https://www.facebook.com/HTimantti/",
+  // Social profiles: add the Instagram/TikTok URL here and it appears site-wide.
+  socials: [
+    { name: "Facebook", url: "https://www.facebook.com/HTimantti/" },
+    // { name: "Instagram", url: "https://www.instagram.com/KAYTTAJANIMI/" },
+    // { name: "TikTok", url: "https://www.tiktok.com/@KAYTTAJANIMI" },
+  ],
   legalName: "HMD Autokorjaamo",
   businessId: "3339714-7",
   hours: [

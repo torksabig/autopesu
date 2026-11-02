@@ -18,40 +18,40 @@ export const areas = [
   {
     slug: "autopesu-hervanta",
     area: "Hervanta",
-    pesula: "turvesuonkatu",
-    title: "Autopesu Hervanta – auton käsinpesu lähellä | H. Timantti",
+    pesula: "hepolamminkatu",
+    title: "Autopesu Hervanta – auton käsinpesu Hepolamminkadulla | H. Timantti",
     description:
-      "Auton käsinpesu Hervannan lähellä, Turvesuonkatu 16. Käsinpesu, imurointi, sisäpuhdistus ja moottorin pesu. Jätä auto pesuun ja hoida asiasi sillä välin. Varaa aika verkossa.",
+      "Auton käsinpesu Hervannassa, Hepolamminkatu 24. Ulkopesu ja imurointi 20 €, sisäpuhdistus, kovavahaus ja moottorin pesu. Jätä auto pesuun ja hoida asiasi sillä välin. Varaa aika verkossa.",
     h1: "Autopesu Hervanta",
     intro:
-      "Hervannasta pääset käsinpesuun lyhyellä ajomatkalla: lähin pesulamme on Turvesuonkadulla. Pesemme autot käsin, ilman harjoja ja rullia, joten maalipinta säilyy naarmuttomana.",
+      "Pesulamme on Hervannassa, Hepolamminkadulla. Pesemme autot käsin, ilman harjoja ja rullia, joten maalipinta säilyy naarmuttomana.",
     body:
       "Moni hervantalainen asioi meillä arkena töiden, opiskelun tai kauppareissun lomassa. Useimmissa palveluissa voit jättää auton pesuun ja hakea sen puhtaana, kun omat asiat on hoidettu.",
   },
   {
     slug: "autopesu-vuores",
     area: "Vuores",
-    pesula: "turvesuonkatu",
+    pesula: "hepolamminkatu",
     title: "Autopesu Vuores – auton käsinpesu lähellä | H. Timantti",
     description:
-      "Auton käsinpesu Vuoreksen lähellä, Turvesuonkatu 16. Käsinpesu, imurointi, sisäpuhdistus ja koirankarvojen poisto perheautoille. Varaa aika verkossa tai soita.",
+      "Auton käsinpesu Vuoreksen lähellä, Hepolamminkatu 24, Hervanta. Käsinpesu, imurointi, sisäpuhdistus ja koirankarvojen poisto perheautoille. Varaa aika verkossa tai soita.",
     h1: "Autopesu Vuores",
     intro:
-      "Vuoreksesta lähin käsinpesulamme on Turvesuonkadulla. Pesemme perheauton käsin sisältä ja ulkoa, ja hoidamme myös koirankarvat ja lasten jäljet takapenkiltä.",
+      "Vuoreksesta lähin käsinpesulamme on Hervannan Hepolamminkadulla. Pesemme perheauton käsin sisältä ja ulkoa, ja hoidamme myös koirankarvat ja lasten jäljet takapenkiltä.",
     body:
       "Käsinpesu sopii erityisesti uudemmille autoille, joiden maalipintaa ei haluta altistaa pesukoneen harjoille. Sisäpuhdistus ja imurointi onnistuvat samalla käynnillä.",
   },
   {
     slug: "autopesu-lielahti",
     area: "Lielahti",
-    pesula: "hepolamminkatu",
-    title: "Autopesu Lielahti – auton käsinpesu lähellä | H. Timantti",
+    pesula: "turvesuonkatu",
+    title: "Käsinpesu Lielahti – Prisman vieressä | H. Timantti",
     description:
-      "Auton käsinpesu Lielahden lähellä, Hepolamminkatu 24. Ulkopesu ja imurointi 20 €, sisäpuhdistus, moottorin pesu ja rekkojen pesu. Avoinna ma–pe 9–19, la 10–18.",
-    h1: "Autopesu Lielahti",
+      "Auton käsinpesu Lielahdessa, Turvesuonkatu 16, Prisma Lielahden vieressä. Avajaistarjous: käsinpesu 10 €, renkaanvaihto 15 €. Avoinna ma–pe 8–18, la 10–18.",
+    h1: "Käsinpesu Lielahti",
     intro:
-      "Lielahden suunnalta lähin pesulamme on Hepolamminkadulla. Pesemme henkilöautot käsin ja puhdistamme myös kuorma-autot ja rekkayhdistelmät.",
+      "Uusi pesulamme on Lielahdessa, Turvesuonkadulla Prisman vieressä. Pesemme autot käsin, ilman harjoja ja rullia, ja vaihdamme myös renkaat.",
     body:
-      "Pesulaan on helppo poiketa läntisen Tampereen ja Ylöjärven suunnalta. Useimmissa palveluissa voit jättää auton pesuun ja hakea sen valmiina.",
+      "Pesulaan on helppo poiketa kauppareissun yhteydessä läntisen Tampereen ja Ylöjärven suunnalta. Useimmissa palveluissa voit jättää auton pesuun ja hakea sen valmiina.",
   },
 ];
