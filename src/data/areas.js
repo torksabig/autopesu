@@ -47,7 +47,7 @@ export const areas = [
     pesula: "hepolamminkatu",
     title: "Autopesu Lielahti – auton käsinpesu lähellä | H. Timantti",
     description:
-      "Auton käsinpesu Lielahden lähellä, Hepolamminkatu 24. Käsinpesu alkaen 20 €, imurointi, sisäpuhdistus, moottorin pesu ja rekkojen pesu. Avoinna ma–pe 9–19, la 10–18.",
+      "Auton käsinpesu Lielahden lähellä, Hepolamminkatu 24. Ulkopesu ja imurointi 20 €, sisäpuhdistus, moottorin pesu ja rekkojen pesu. Avoinna ma–pe 9–19, la 10–18.",
     h1: "Autopesu Lielahti",
     intro:
       "Lielahden suunnalta lähin pesulamme on Hepolamminkadulla. Pesemme henkilöautot käsin ja puhdistamme myös kuorma-autot ja rekkayhdistelmät.",

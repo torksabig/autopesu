@@ -1,74 +1,107 @@
-import { Check } from "lucide-react";
+import { useState } from "react";
+import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/site/Reveal";
 import SectionHeading from "@/components/site/SectionHeading";
-import { business, packages } from "@/data/site";
+import { business, formatPrice, openingOffer, priceCategories } from "@/data/site";
 
 export default function Pricing() {
+  const [activeId, setActiveId] = useState(priceCategories[0].id);
+  const active = priceCategories.find((c) => c.id === activeId);
+
   return (
     <section id="pricing" className="mx-auto w-full max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
       <Reveal>
         <SectionHeading
-          title="Kolme tapaa pestä auto"
-          copy="Hinnat ovat arvioita ja sisältävät arvonlisäveron. Tarkan hinnan saat, kun kerrot auton mallin ja kunnon."
+          title="Hinnasto"
+          copy="Hinnat henkilöautoille, sisältävät arvonlisäveron. Yliviivattu hinta on normaalihinta, ja sen vieressä on tämänhetkinen kampanjahinta. Isoille tai erittäin likaisille autoille hinta sovitaan paikan päällä."
         />
       </Reveal>
 
-      <div className="mt-12 grid gap-5 lg:grid-cols-3">
-        {packages.map((pack, index) => (
-          <Reveal key={pack.name} delay={index * 0.07}>
-            <div
-              className={`flex h-full flex-col rounded-2xl p-8 ${
-                pack.featured
-                  ? "bg-foreground text-background"
-                  : "border border-border bg-background"
-              }`}
-            >
-              <div className="flex items-center justify-between">
-                <h3 className={`text-[0.72rem] font-medium uppercase tracking-[0.18em] ${pack.featured ? "text-background/60" : "text-muted-foreground"}`}>
-                  {pack.name}
-                </h3>
-                {pack.featured && (
-                  <span className="rounded-full bg-background/15 px-3 py-1 text-[0.62rem] font-medium uppercase tracking-[0.14em]">
-                    Suosituin
-                  </span>
+      <Reveal>
+        <div className="mt-10 flex flex-col gap-4 rounded-2xl bg-foreground p-6 text-background sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-[0.66rem] font-medium uppercase tracking-[0.18em] text-background/60">{openingOffer.location}</p>
+            <p className="mt-1 text-lg font-semibold">{openingOffer.title}</p>
+          </div>
+          <div className="flex flex-wrap gap-6">
+            {openingOffer.items.map((o) => (
+              <div key={o.name}>
+                <p className="text-[0.78rem] text-background/70">{o.name}</p>
+                <p className="text-2xl font-semibold tabular-nums">{o.price}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Reveal>
+
+      <div role="tablist" aria-label="Hinnaston kategoriat" className="mt-10 flex flex-wrap gap-2">
+        {priceCategories.map((c) => (
+          <button
+            key={c.id}
+            type="button"
+            role="tab"
+            aria-selected={c.id === activeId}
+            onClick={() => setActiveId(c.id)}
+            className={`rounded-full px-5 py-2.5 text-[0.82rem] font-medium transition-colors ${
+              c.id === activeId ? "bg-foreground text-background" : "border border-border hover:border-foreground"
+            }`}
+          >
+            {c.title}
+          </button>
+        ))}
+      </div>
+
+      <p className="mt-5 text-[0.85rem] text-muted-foreground">{active.note}</p>
+
+      <div className="mt-4 divide-y divide-border border-y border-border" role="tabpanel">
+        {active.items.map((item) => (
+          <div key={item.name} className="flex flex-col gap-2 py-5 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
+            <div>
+              <div className="flex flex-wrap items-center gap-2">
+                <h3 className="text-[1.02rem] font-semibold">{item.name}</h3>
+                {item.popular && (
+                  <span className="rounded-full bg-foreground px-2.5 py-0.5 text-[0.6rem] font-medium uppercase tracking-[0.12em] text-background">Suosituin</span>
+                )}
+                {item.addon && (
+                  <span className="rounded-full border border-border px-2.5 py-0.5 text-[0.6rem] font-medium uppercase tracking-[0.12em] text-muted-foreground">Lisäpalvelu</span>
                 )}
               </div>
-
-              <div className="mt-7 flex items-baseline gap-2">
-                <span className="text-[2.5rem] font-medium leading-none tracking-tight">{pack.price}</span>
-                <span className={`text-[0.72rem] ${pack.featured ? "text-background/60" : "text-muted-foreground"}`}>
-                  {pack.unit}
-                </span>
-              </div>
-
-              <p className={`mt-4 text-[0.88rem] leading-relaxed ${pack.featured ? "text-background/70" : "text-muted-foreground"}`}>
-                {pack.copy}
-              </p>
-
-              <ul className={`mt-7 flex-1 space-y-2.5 border-t pt-6 text-[0.85rem] ${pack.featured ? "border-background/15" : "border-border"}`}>
-                {pack.features.map((feature) => (
-                  <li key={feature} className="flex gap-3">
-                    <Check className={`mt-0.5 h-4 w-4 shrink-0 ${pack.featured ? "text-background/60" : "text-muted-foreground"}`} />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href={pack.featured ? business.bookingUrl : "#enquiry"}
-                target={pack.featured ? "_blank" : undefined}
-                rel={pack.featured ? "noreferrer" : undefined}
-                className={`mt-8 inline-flex items-center justify-center rounded-full px-6 py-3.5 text-[0.8rem] font-medium transition-opacity hover:opacity-85 ${
-                  pack.featured
-                    ? "bg-background text-foreground"
-                    : "bg-foreground text-background"
-                }`}
-              >
-                {pack.cta}
-              </a>
+              <p className="mt-1 text-[0.88rem] text-muted-foreground">{item.detail}</p>
             </div>
-          </Reveal>
+            <div className="flex shrink-0 items-center gap-3 sm:justify-end">
+              {item.normal && (
+                <span className="rounded-full bg-red-600 px-2.5 py-1 text-[0.7rem] font-bold tabular-nums text-white">
+                  -{Math.round((1 - item.price / item.normal) * 100)} %
+                </span>
+              )}
+              {item.normal && (
+                <span
+                  className="text-[1rem] tabular-nums text-muted-foreground line-through decoration-red-600 decoration-2"
+                  aria-label={`Normaalihinta ${item.normal} euroa`}
+                >
+                  {item.normal} €
+                </span>
+              )}
+              <span className={`text-[1.75rem] font-bold tabular-nums ${item.normal ? "text-red-600" : ""}`}>
+                {formatPrice(item)}
+              </span>
+            </div>
+          </div>
         ))}
+      </div>
+
+      <div className="mt-8 flex flex-wrap gap-3">
+        <a
+          href={business.bookingUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-[0.8rem] font-medium text-background hover:opacity-85"
+        >
+          Varaa aika <ArrowUpRight className="h-4 w-4" />
+        </a>
+        <a href="#enquiry" className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3.5 text-[0.8rem] font-medium hover:border-foreground">
+          Kysy hinta isommalle autolle
+        </a>
       </div>
     </section>
   );

@@ -18,107 +18,76 @@ export const business = {
 };
 
 export const stats = [
-  { value: "alk. 20 €", label: "Henkilöauton pesu" },
-  { value: "30 €", label: "Käsinpesu + imurointi" },
-  { value: "Ma–La", label: "Avoinna · sunnuntai suljettu" },
+  { value: "20 €", label: "Ulkopesu + imurointi" },
+  { value: "60 €", label: "Pesu + kovavaha" },
   { value: "Hepolamminkatu 24", label: "Tampere" },
+  { value: "Turvesuonkatu 16", label: "Tampere" },
+  { value: "Ma–La", label: "Avoinna · sunnuntai suljettu", wide: true },
 ];
 
-export const services = [
+// One price list = one source of truth. Services, Pricing and area pages all read from here.
+// offer = current campaign price, normal = struck-through regular price (omit when no campaign).
+export const priceCategories = [
   {
-    id: "01",
-    name: "Henkilöauton pesu",
-    detail: "Koko auton käsinpesu, vanteet ja ikkunat, huolellinen kuivaus.",
-    price: "alk. 20 €",
+    id: "pesut",
+    title: "Pesut",
+    note: "Ulkopesu tehdään aina käsin, ilman harjoja ja rullia.",
+    items: [
+      { name: "Ulkopesu + sisäimurointi", detail: "Koko auton käsinpesu, vanteet, ikkunat ja imurointi sisältä.", price: 20, normal: 30, popular: true },
+      { name: "Ulkopesu + pikavaha", detail: "Käsinpesu ja pikavaha, joka antaa kiillon ja helpottaa seuraavaa pesua.", price: 30, normal: 50 },
+      { name: "Ulkopesu + kestovaha", detail: "Käsinpesu ja pidempään kestävä vaha maalipinnan suojaksi.", price: 70, normal: 100 },
+      { name: "Ulkopesu + asfalttipuhdistus + kovavaha", detail: "Asfaltti- ja tervaroiskeiden poisto sekä kovavaha.", price: 60, normal: 90 },
+    ],
   },
   {
-    id: "02",
-    name: "Käsinpesu + imurointi",
-    detail: "Ulkopesu käsin sekä imurointi ja mattojen puhdistus sisältä.",
-    price: "30 €",
+    id: "sisatilat",
+    title: "Sisätilat",
+    note: "Voit yhdistää sisäpuhdistuksen mihin tahansa pesuun.",
+    items: [
+      { name: "Sisäpuhdistus", detail: "Imurointi, kojelauta, ovipaneelit ja lasit sisältä.", price: 25 },
+      { name: "Penkkipesu + sisäpuhdistus", detail: "Penkkien ja verhoilun pesu sekä koko sisätilojen puhdistus.", price: 80, normal: 100 },
+      { name: "Koirankarvojen poisto", detail: "Lisäpalvelu: koirankarvat pois penkeiltä ja matoilta.", price: 15, addon: true },
+    ],
   },
   {
-    id: "03",
-    name: "Sisäpuhdistus",
-    detail: "Imurointi, kojelauta, ovipaneelit ja lasit sisältä.",
-    price: "25 €",
+    id: "suojaus",
+    title: "Vahaus ja suojaus",
+    note: "Pitkäkestoinen kiilto ja suoja maalipinnalle.",
+    items: [
+      { name: "Puleeraus + kovavahaus", detail: "Maalipinnan kiillotus ja kovavaha. Palauttaa kiillon ja suojaa pintaa.", price: 100, normal: 180 },
+      { name: "Keraaminen pinnoite", detail: "Pitkäkestoisin suoja maalipinnalle. Kysy lisää kestosta.", price: 350, normal: 550 },
+    ],
   },
   {
-    id: "04",
-    name: "Moottorin pesu",
-    detail: "Moottoritilan pesu herkistä osista huolehtien.",
-    price: "25 €",
-  },
-  {
-    id: "05",
-    name: "Koirankarvojen poisto",
-    detail: "Koirankarvojen ja eläinten jäänteiden poisto sisätiloista.",
-    price: "15 €",
-  },
-  {
-    id: "06",
-    name: "Vahaus",
-    detail: "Käsin levitetty vaha suojaa maalipintaa ja helpottaa seuraavaa pesua.",
-    price: "kysy hinta",
-  },
-  {
-    id: "07",
-    name: "Penkkien pesu",
-    detail: "Penkkien ja verhoilun pesu osana sisäpuhdistusta.",
-    price: "kysy hinta",
-  },
-  {
-    id: "08",
-    name: "Rekkojen kokonaisvaltainen puhdistus",
-    detail: "Täydet puhdistuspalvelut kuorma-autoille ja enintään 29 metriä pitkille rekkayhdistelmille.",
-    price: "kysy hinta",
+    id: "muut",
+    title: "Muut palvelut",
+    note: "Isommat ajoneuvot ja erikoistyöt.",
+    items: [
+      { name: "Moottorin pesu", detail: "Moottoritilan pesu herkistä osista huolehtien.", price: 25 },
+      { name: "Asuntoauton pesu ja vahaus", detail: "Asuntoauton ulkopesu käsin ja vahaus.", price: 175 },
+      { name: "Rekkojen kokonaisvaltainen puhdistus", detail: "Kuorma-autot ja enintään 29 m rekkayhdistelmät.", price: null },
+    ],
   },
 ];
 
-export const packages = [
-  {
-    name: "Pelkkä pesu",
-    price: "alk. 20 €",
-    unit: "per auto",
-    copy: "Auton ulkopuoli käsin pesty ja kuivattu. Siisti pinta ilman harjoja ja rullia.",
-    features: [
-      "Koko auton käsinpesu",
-      "Vanteet ja renkaat",
-      "Ikkunat ulkoa",
-      "Huolellinen kuivaus",
-    ],
-    cta: "Varaa aika",
-    featured: false,
-  },
-  {
-    name: "Pesu + imurointi",
-    price: "30 €",
-    unit: "per auto",
-    copy: "Suosituin vaihtoehto: auto puhdas niin päältä kuin sisältä yhdellä käynnillä.",
-    features: [
-      "Koko auton käsinpesu",
-      "Imurointi ja matot",
-      "Sisäpinnat pyyhitään",
-      "Koirankarvat pois tarvittaessa",
-    ],
-    cta: "Varaa aika",
-    featured: true,
-  },
-  {
-    name: "Sisäpuhdistus",
-    price: "25 €",
-    unit: "per auto",
-    copy: "Kun sisätilat kaipaavat enemmän kuin pikaista imurointia.",
-    features: [
-      "Imurointi ja matot",
-      "Kojelauta ja ovipaneelit",
-      "Lasit sisältä",
-      "Penkkien pesu erikseen sovittaessa",
-    ],
-    cta: "Kysy lisää",
-    featured: false,
-  },
-];
+export const formatPrice = (item) => (item.price == null ? "Kysy hinta" : `${item.price} €`);
+
+// Flat list used by the Services section and area pages.
+export const services = priceCategories.flatMap((c) => c.items).map((item, i) => ({
+  id: String(i + 1).padStart(2, "0"),
+  name: item.name,
+  detail: item.detail,
+  price: formatPrice(item),
+}));
+
+export const openingOffer = {
+  location: "Turvesuonkatu 16",
+  title: "Avajaistarjous Turvesuonkadulla",
+  items: [
+    { name: "Käsinpesu", price: "10 €" },
+    { name: "Renkaanvaihto", price: "15 €" },
+  ],
+};
 
 export const steps = [
   {
@@ -184,7 +153,7 @@ export const faqs = [
   },
   {
     q: "Paljonko pesu maksaa?",
-    a: "Henkilöauton pesu alkaen 20 €, käsinpesu ja imurointi 30 €, sisäpuhdistus 25 €, moottorin pesu 25 € ja koirankarvojen poisto 15 €.",
+    a: "Ulkopesu ja sisäimurointi 20 €, ulkopesu ja pikavaha 30 €, sisäpuhdistus 25 €, penkkipesu ja sisäpuhdistus 80 €, puleeraus ja kovavahaus 100 €. Koko hinnasto löytyy sivun Hinnasto-osiosta.",
   },
   {
     q: "Missä pesula sijaitsee?",

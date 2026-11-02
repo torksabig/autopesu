@@ -10,17 +10,19 @@ import Testimonials from "@/components/site/Testimonials";
 import Faq from "@/components/site/Faq";
 import Enquiry from "@/components/site/Enquiry";
 import SiteFooter from "@/components/site/SiteFooter";
+import OfferPopup from "@/components/site/OfferPopup";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
+      <OfferPopup />
       <SiteNav />
       <main>
         <Hero />
         <Intro />
         <FeatureCards />
-        <Services />
         <Pricing />
+        <Services />
         <Process />
         <Coverage />
         <Testimonials />

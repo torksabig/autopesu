@@ -18,7 +18,7 @@ export default function Intro() {
         <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8">
           <dl className="grid grid-cols-2 gap-x-8 gap-y-8">
             {stats.map((stat) => (
-              <div key={stat.label} className="border-t border-border pt-4">
+              <div key={stat.value} className={`border-t border-border pt-4 ${stat.wide ? "col-span-2" : ""}`}>
                 <dt className="text-2xl font-medium tracking-tight">{stat.value}</dt>
                 <dd className="mt-1.5 text-[0.8rem] leading-snug text-muted-foreground">{stat.label}</dd>
               </div>

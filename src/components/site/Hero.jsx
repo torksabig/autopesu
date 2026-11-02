@@ -21,7 +21,7 @@ export default function Hero() {
           imageAlt="Auton käsinpesu"
           eyebrow="Ulkopesu käsin"
           title="Käsinpesu"
-          copy="Koko auton käsinpesu alkaen 20 €. Lika irtoaa ilman harjoja, ja jälki on siisti myös vanteissa ja listoissa."
+          copy="Ulkopesu ja sisäimurointi 20 €. Lika irtoaa ilman harjoja, ja jälki on siisti myös vanteissa ja listoissa."
           href="#pricing"
         />
         <HeroPanel
