@@ -4,17 +4,25 @@ const columns = [
   {
     title: "Pesula",
     links: [
-      { label: "Palvelut", href: "#services" },
-      { label: "Hinnasto", href: "#pricing" },
-      { label: "Sijainti ja aukioloajat", href: "#coverage" },
-      { label: "Usein kysytyt", href: "#faq" },
+      { label: "Palvelut", href: "/#services" },
+      { label: "Hinnasto", href: "/#pricing" },
+      { label: "Sijainti ja aukioloajat", href: "/#coverage" },
+      { label: "Usein kysytyt", href: "/#faq" },
+    ],
+  },
+  {
+    title: "Alueet",
+    links: [
+      { label: "Autopesu Hervanta", href: "/autopesu-hervanta" },
+      { label: "Autopesu Vuores", href: "/autopesu-vuores" },
+      { label: "Autopesu Lielahti", href: "/autopesu-lielahti" },
     ],
   },
   {
     title: "Yhteys",
     links: [
       { label: "Varaa aika verkossa", href: business.bookingUrl, external: true },
-      { label: "Lähetä viesti", href: "#enquiry" },
+      { label: "Lähetä viesti", href: "/#enquiry" },
       { label: "Facebook", href: business.facebookUrl, external: true },
       { label: "Puhelin", href: business.phoneHref },
     ],
@@ -26,7 +34,7 @@ export default function SiteFooter() {
     <footer className="border-t border-border bg-background">
       <div className="mx-auto w-full max-w-7xl px-6 py-16 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-3">
             <p className="text-xl font-semibold tracking-tight">{business.name}</p>
             <p className="mt-1 text-[0.68rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
               {business.tagline} · {business.region}
@@ -91,7 +99,7 @@ export default function SiteFooter() {
               Evästeet
             </a>
           </div>
-          <a href="#top" className="text-[0.76rem] text-muted-foreground transition-opacity hover:opacity-60">
+          <a href="/#top" className="text-[0.76rem] text-muted-foreground transition-opacity hover:opacity-60">
             Takaisin ylös ↑
           </a>
         </div>
