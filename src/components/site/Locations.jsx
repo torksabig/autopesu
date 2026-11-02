@@ -21,6 +21,14 @@ const locations = [
   },
 ];
 
+const CONSENT_KEY = "map-consent";
+const readConsent = () => {
+  try { return localStorage.getItem(CONSENT_KEY) === "yes"; } catch { return false; }
+};
+export const resetMapConsent = () => {
+  try { localStorage.removeItem(CONSENT_KEY); } catch {}
+};
+
 const embedUrl = (address) =>
   `https://www.google.com/maps?q=${encodeURIComponent(address)}&z=15&output=embed`;
 const directionsUrl = (address) =>
@@ -29,6 +37,11 @@ const directionsUrl = (address) =>
 export default function Locations() {
   const [activeId, setActiveId] = useState(locations[0].id);
   const active = locations.find((l) => l.id === activeId);
+  const [consent, setConsent] = useState(readConsent);
+  const accept = () => {
+    try { localStorage.setItem(CONSENT_KEY, "yes"); } catch {}
+    setConsent(true);
+  };
 
   return (
     <Reveal className="mt-12">
@@ -81,6 +94,7 @@ export default function Locations() {
         </div>
 
         <div className="relative min-h-[360px] overflow-hidden rounded-2xl border border-border lg:col-span-8">
+          {consent ? (
           <iframe
             key={active.id}
             title={`Kartta: ${active.address}`}
@@ -90,6 +104,22 @@ export default function Locations() {
             referrerPolicy="no-referrer-when-downgrade"
             allowFullScreen
           />
+          ) : (
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-secondary p-6 text-center">
+              <MapPin className="h-6 w-6" />
+              <p className="max-w-sm text-[0.88rem] text-muted-foreground">
+                Kartta ladataan Google Mapsista. Google voi tällöin asettaa evästeitä.{" "}
+                <a href="/tietosuoja#evasteet" className="underline underline-offset-4">Lue lisää</a>
+              </p>
+              <button
+                type="button"
+                onClick={accept}
+                className="rounded-full bg-foreground px-5 py-2.5 text-[0.82rem] font-medium text-background hover:opacity-85"
+              >
+                Näytä kartta
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </Reveal>

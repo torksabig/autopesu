@@ -206,6 +206,10 @@ export default function Enquiry() {
                         </>
                       )}
                     </button>
+                    <p className="text-[0.72rem] leading-relaxed text-muted-foreground">
+                      Käsittelemme tietojasi yhteydenottoon vastaamiseksi.{" "}
+                      <a href="/tietosuoja" className="underline underline-offset-4">Tietosuojaseloste</a>
+                    </p>
                   </div>
                 </form>
               )}

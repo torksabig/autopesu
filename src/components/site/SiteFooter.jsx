@@ -81,8 +81,16 @@ export default function SiteFooter() {
 
         <div className="mt-14 flex flex-col gap-3 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-[0.76rem] text-muted-foreground">
-            © {new Date().getFullYear()} {business.fullName} · Tampere
+            © {new Date().getFullYear()} {business.legalName} · Y-tunnus {business.businessId} · Tampere
           </p>
+          <div className="flex gap-5">
+            <a href="/tietosuoja" className="text-[0.76rem] text-muted-foreground transition-opacity hover:opacity-60">
+              Tietosuojaseloste
+            </a>
+            <a href="/tietosuoja#evasteet" className="text-[0.76rem] text-muted-foreground transition-opacity hover:opacity-60">
+              Evästeet
+            </a>
+          </div>
           <a href="#top" className="text-[0.76rem] text-muted-foreground transition-opacity hover:opacity-60">
             Takaisin ylös ↑
           </a>

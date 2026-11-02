@@ -8,6 +8,8 @@ export const business = {
   address: "Hepolamminkatu 24, Tampere",
   bookingUrl: "https://h-timantti.setmore.com/",
   facebookUrl: "https://www.facebook.com/HTimantti/",
+  legalName: "HMD Autokorjaamo",
+  businessId: "3339714-7",
   hours: [
     { label: "Maanantai – Perjantai", value: "9.00 – 19.00" },
     { label: "Lauantai", value: "10.00 – 18.00" },
@@ -167,6 +169,10 @@ export const faqs = [
   {
     q: "Pitääkö aika varata etukäteen?",
     a: "Suosittelemme varaamaan. Ajan saa helpoimmin verkosta Setmore-palvelusta tai soittamalla numeroon 045 220 6422.",
+  },
+  {
+    q: "Voinko jättää auton pesuun ja hakea sen myöhemmin?",
+    a: "Riippuu palvelusta, mutta useimmiten kyllä. Kun tuot auton pesuun, voit yleensä jättää sen meille ja hoitaa omat asiasi sillä välin. Pesu hoituu nopeasti, ja ilmoitamme, kun auto on valmis.",
   },
   {
     q: "Milloin pesula on auki?",

@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
+import Privacy from './pages/Privacy';
 
 // Public marketing site: no Base44 auth gate (it blanked the page without an app ID).
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/tietosuoja" element={<Privacy />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Router>
