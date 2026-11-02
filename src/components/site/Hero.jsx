@@ -11,6 +11,7 @@ const quickLinks = [
 export default function Hero() {
   return (
     <section id="top" className="relative flex min-h-[100svh] flex-col bg-foreground">
+      <h1 className="sr-only">Autojen käsinpesu Tampereella – H. Timantti, Hepolamminkatu 24 ja Turvesuonkatu 16</h1>
       <div className="absolute inset-x-0 top-0 z-10 h-40 bg-gradient-to-b from-black/50 to-transparent" />
 
       <div className="grid flex-1 grid-cols-1 md:grid-cols-2">
