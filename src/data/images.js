@@ -3,4 +3,5 @@ export const images = {
   foam: "/images/foam-wash.webp",
   trailers: "/images/warehouse.webp",
   trucks: "/images/trucks.webp",
+  interior: "/images/interior.webp",
 };

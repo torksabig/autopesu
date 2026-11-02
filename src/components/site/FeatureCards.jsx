@@ -5,8 +5,8 @@ import { images } from "@/data/images";
 
 const cards = [
   {
-    image: images.foam,
-    imageAlt: "Maastoauto pesuvaahdon peitossa",
+    image: images.interior,
+    imageAlt: "Ohjauspyörän puhdistus mikrokuituliinalla",
     eyebrow: "Sisätilat",
     title: "Sisäpuhdistus",
     copy: "Imurointi, kojelauta, ovipaneelit ja lasit sisältä tai koko sisätilojen puhdistus. Koirankarvat lähtevät samalla kertaa.",

@@ -4,6 +4,7 @@ import Reveal from "@/components/site/Reveal";
 import SectionHeading from "@/components/site/SectionHeading";
 import { business } from "@/data/site";
 import { images } from "@/data/images";
+import Locations from "@/components/site/Locations";
 
 export default function Coverage() {
   return (
@@ -28,6 +29,8 @@ export default function Coverage() {
           </div>
         </div>
       </Reveal>
+
+      <Locations />
 
       <div className="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-16">
         <Reveal className="lg:col-span-6">
